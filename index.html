@@ -1,3 +1,44 @@
-<html>
-    <h1>Dog Cheese</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dogcheese.org</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #1b1b1b;
+        }
+        #container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: rgb(255, 217, 0); /* Change text color to white */
+        }
+        .throne-image {
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .throne-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>dogcheese.org</h1>
+        <a href="royal-lineage.html">
+            <img src="throne.png" alt="Throne" class="throne-image">
+        </a>
+    </div>
+</body>
 </html>
+
