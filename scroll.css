@@ -1,4 +1,4 @@
-/* Found here - https://codepen.io/AgnusDei/pen/NWPbOxL */
+/* Found here https://codepen.io/AgnusDei/pen/NWPbOxL */
 
 @import url('https://fonts.googleapis.com/css?family=Pirata+One|Bilbo+Swash+Caps&display=swap');
 
@@ -73,27 +73,32 @@ August 2021 : ok on Chrome v92+, Firefox v90+, Edge v92+
     background: conic-gradient(#fff3, #fff0 2% 24%, #fff2 25%, #4321 0, #0000 27% 48%, #9632 50%, #fff2 0, #fff0 52% 73%, #9632 75%, #fff3 0, #fff0 78% 97%, #9632);
 }
 
-main p {
+.ruler {
     font-size: 2.25em;
     color: #7F3300;
     margin-top: .75em;
     text-align: justify;
 }
 
-div p:not(:first-child)::first-letter {
+.ruler-name::first-letter {
     float: left;
     font-size: 1.7em;
     line-height: 1em;
     font-family: 'Morris', serif;
     color: #7f1e00;
-
+    font-weight: normal;
     /* Ensure 'Morris' is a valid font */
-    text-shadow: 1px 1px 1px #7F3300;
+    text-shadow: .5px .5px .8px #7F3300;
     /* Adds a shadow to the first letter */
     margin: 0 0.5rem 0 0;
     /* Proper margin spacing */
 }
 
+.ruler-name {
+    margin-bottom: 33px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 #contain {
     position: relative;
