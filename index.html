@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DogCheese.org</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dogcheese.org</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #000000;
+        }
+        #container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: rgb(255, 217, 0); /* Change text color to white */
+        }
+        .throne-image {
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .throne-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1 class="logo">DogCheese<span>.org</span></h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="royal-lineage.html">Royal Lineage</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <section id="hero">
-      <h2>Unleashing Elegance, One Cheesy Bark at a Time</h2>
-      <p>Discover the finest blend of canine charm and artisanal cheese. Where royalty meets flavor.</p>
-      <a href="#about" class="cta-btn">Learn More</a>
-    </section>
-    
-    <section id="about">
-      <h2>About DogCheese</h2>
-      <p>DogCheese.org is a beacon of sophistication in the world of gourmet pet experiences. Inspired by the noble heritage of canine companions and the timeless appeal of cheese, we bring you a curated journey through history, taste, and loyalty.</p>
-    </section>
-    
-    <section id="features">
-      <h2>Features</h2>
-      <ul class="feature-list">
-        <li><strong>Royal Recipes:</strong> A taste fit for kings.</li>
-        <li><strong>Dog-Friendly Pairings:</strong> Delightful combinations your pup will adore.</li>
-        <li><strong>Exclusive Events:</strong> Join the elite circle of DogCheese enthusiasts.</li>
-      </ul>
-    </section>
-  </main>
-  
-  <footer id="contact">
-    <p>Contact us at <a href="mailto:info@dogcheese.org">info@dogcheese.org</a></p>
-    <p>© 2024 DogCheese.org | All Rights Reserved</p>
-  </footer>
+    <div id="container">
+        <h1>dogcheese.org</h1>
+        <a href="royal-lineage.html">
+            <img src="throne.png" alt="Throne" class="throne-image">
+        </a>
+    </div>
 </body>
 </html>
+
