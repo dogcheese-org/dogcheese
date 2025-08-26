@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Business Plan | Gateway's Gravitic Guidance Gear (G4)</title>
+    <!-- Chosen Palette: "Sky & Slate" - A professional and clean theme using light slate grays, deep navy text, and sky blue accents for a modern, tech-focused feel. -->
+    <!-- Application Structure Plan: The business plan is redesigned as a single-page, dashboard-style application with a sticky top navigation for non-linear exploration. The structure is thematic (Vision, Product, Market, Financials) rather than mirroring the report's linear sections. This user-centric design allows stakeholders to quickly jump to sections of interest, such as financial projections or product features. Key interactions include clickable feature cards to reveal details, and interactive charts for financial data, making the dense information more engaging and easier to synthesize than a static document. -->
+    <!-- Visualization & Content Choices: Financial data is visualized to enhance understanding. Startup Costs (Goal: Inform on proportions) are shown with a Doughnut Chart (Chart.js) for easy comparison of allocations. Revenue Projections (Goal: Show change/growth) are displayed as a Bar Chart (Chart.js) to clearly illustrate the 5-year growth trajectory. The multi-phase market strategy (Goal: Organize) is presented as a clear, step-by-step visual diagram using structured HTML/CSS. Product features (Goal: Inform) are in an interactive card layout where users click to get more detail, preventing information overload. This structure supports the dashboard-style application by making complex data immediately scannable and explorable. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link.active {
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .feature-card.active {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 font-sans antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-slate-800">
+                G<span class="text-sky-600">4</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#vision" class="nav-link text-slate-600 hover:text-sky-600 transition-colors">The Vision</a>
+                <a href="#product" class="nav-link text-slate-600 hover:text-sky-600 transition-colors">The Product</a>
+                <a href="#market" class="nav-link text-slate-600 hover:text-sky-600 transition-colors">The Market</a>
+                <a href="#strategy" class="nav-link text-slate-600 hover:text-sky-600 transition-colors">The Strategy</a>
+                <a href="#financials" class="nav-link text-slate-600 hover:text-sky-600 transition-colors">The Financials</a>
+            </div>
+            <div class="md:hidden">
+                <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-sm">
+                    <option value="#vision">The Vision</option>
+                    <option value="#product">The Product</option>
+                    <option value="#market">The Market</option>
+                    <option value="#strategy">The Strategy</option>
+                    <option value="#financials">The Financials</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-white">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-800 leading-tight">
+                    Gateway's Gravitic<br>Guidance Gear
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    Unlocking the future of personal flight by engineering the safest, most intuitive, and most reliable gravitic gear on the planet.
+                </p>
+                <div class="mt-8 bg-sky-50 border-l-4 border-sky-500 p-6 rounded-r-lg inline-block">
+                    <p class="text-slate-800 font-semibold">Seeking <span class="text-sky-700 text-2xl">$15 Million</span> in seed funding to pioneer the next frontier in personal aviation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800">The Vision & Strategic Advantage</h2>
+                <p class="text-center mt-2 max-w-2xl mx-auto text-slate-600">G4 is positioned to lead the personal flight revolution by leveraging a unique combination of groundbreaking technology and a strategic geographic location.</p>
+                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-sky-700">Geospatial Hub</h3>
+                        <p class="mt-2 text-sm">Proximity to the National Geospatial-Intelligence Agency (NGA) West provides access to an unparalleled talent pool of geospatial experts.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-sky-700">Aerospace Ecosystem</h3>
+                        <p class="mt-2 text-sm">Co-located with aerospace giants like Boeing, ensuring a rich supply chain and a deep well of engineering talent.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-sky-700">Cost Efficiency</h3>
+                        <p class="mt-2 text-sm">Lower operational costs and cost of living compared to traditional coastal tech hubs, maximizing capital efficiency.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-sky-700">Central Logistics</h3>
+                        <p class="mt-2 text-sm">A central U.S. location provides a significant advantage for logistics, distribution, and nationwide operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="product" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800">The Product: G4 Archangel</h2>
+                <p class="text-center mt-2 max-w-2xl mx-auto text-slate-600">A personal flight system engineered for safety, stability, and operational simplicity. Click on a feature to learn more.</p>
+                <div class="mt-12 grid md:grid-cols-5 gap-8 items-start">
+                    <div class="md:col-span-2 bg-slate-100 p-6 rounded-lg text-center">
+                        <div class="text-6xl mb-4">✈️</div>
+                        <h3 class="text-2xl font-bold text-slate-800">G4 Archangel</h3>
+                        <div class="mt-4 space-y-2 text-left">
+                            <p><strong>Flight Time:</strong> <span class="font-mono text-sky-700">10-12 min</span></p>
+                            <p><strong>Max Speed:</strong> <span class="font-mono text-sky-700">75 mph</span></p>
+                            <p><strong>Propulsion:</strong> <span class="text-slate-600">Miniature Turbine Engines</span></p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <div id="feature-cards" class="grid grid-cols-1 gap-4">
+                            <div class="feature-card border-2 border-slate-200 p-4 rounded-lg cursor-pointer hover:border-sky-500 transition-colors active" data-feature="ggs">
+                                <h4 class="font-bold text-slate-800">Gravitic Guidance System (GGS)</h4>
+                                <p class="text-sm text-slate-600">The core of our IP, offering unparalleled automated stability and safety.</p>
+                            </div>
+                            <div class="feature-card border-2 border-slate-200 p-4 rounded-lg cursor-pointer hover:border-sky-500 transition-colors" data-feature="safety">
+                                <h4 class="font-bold text-slate-800">Advanced Safety Features</h4>
+                                <p class="text-sm text-slate-600">Redundant systems and a ballistic parachute ensure operator safety.</p>
+                            </div>
+                            <div class="feature-card border-2 border-slate-200 p-4 rounded-lg cursor-pointer hover:border-sky-500 transition-colors" data-feature="services">
+                                <h4 class="font-bold text-slate-800">Training & Support</h4>
+                                <p class="text-sm text-slate-600">Mandatory, rigorous training and comprehensive maintenance plans.</p>
+                            </div>
+                        </div>
+                        <div id="feature-display" class="mt-4 bg-sky-50 p-6 rounded-lg min-h-[150px]">
+                            <div id="feature-ggs" class="feature-content">
+                                <h5 class="font-bold text-sky-800">How GGS Works</h5>
+                                <p class="text-sm mt-2 text-slate-700">The GGS uses LIDAR, GPS, and other sensors to map the environment in real-time. This allows for automated micro-adjustments for stability, programmable geofencing to avoid hazards, and a simple "Return Home" function, drastically reducing pilot workload and required physical strength.</p>
+                            </div>
+                            <div id="feature-safety" class="feature-content hidden">
+                                <h5 class="font-bold text-sky-800">Safety First</h5>
+                                <p class="text-sm mt-2 text-slate-700">Operator safety is paramount. The G4 Archangel is equipped with redundant engine systems to handle potential failures, a whole-aircraft ballistic parachute for emergency descents, and continuous real-time performance monitoring that alerts the operator to any issues.</p>
+                            </div>
+                            <div id="feature-services" class="feature-content hidden">
+                                <h5 class="font-bold text-sky-800">G4 Flight Academy</h5>
+                                <p class="text-sm mt-2 text-slate-700">No operator will fly without completing our rigorous certification program at the G4 Flight Academy. We offer tiered training for emergency, industrial, and recreational pilots, along with comprehensive maintenance plans to ensure every unit remains airworthy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800">The Market Opportunity</h2>
+                <p class="text-center mt-2 max-w-2xl mx-auto text-slate-600">Our phased approach targets high-value professional markets first to build credibility and revenue before expanding into the recreational sector.</p>
+                <div class="mt-12">
+                    <div class="relative flex flex-col md:flex-row justify-between items-center w-full max-w-4xl mx-auto">
+                        <div class="absolute top-1/2 left-0 w-full h-1 bg-sky-200 hidden md:block"></div>
+                        <div class="flex flex-col items-center text-center z-10 w-full md:w-1/3 p-4">
+                            <div class="w-16 h-16 bg-sky-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2">1</div>
+                            <h4 class="font-bold">Phase 1: Professional</h4>
+                            <p class="text-sm text-slate-600">Emergency Services & Industrial Inspection (Years 1-3)</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center z-10 w-full md:w-1/3 p-4 mt-8 md:mt-0">
+                            <div class="w-16 h-16 bg-sky-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2">2</div>
+                            <h4 class="font-bold">Phase 2: Exclusive</h4>
+                            <p class="text-sm text-slate-600">High-Net-Worth Individuals & Recreation (Years 4+)</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center z-10 w-full md:w-1/3 p-4 mt-8 md:mt-0">
+                            <div class="w-16 h-16 bg-sky-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2">3</div>
+                            <h4 class="font-bold">Phase 3: Expansion</h4>
+                            <p class="text-sm text-slate-600">Broader Commercial & Recreational Applications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="strategy" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800">Go-to-Market Strategy & Roadmap</h2>
+                <p class="text-center mt-2 max-w-2xl mx-auto text-slate-600">Our 5-year plan focuses on achieving certification, securing foundational contracts, and scaling production for market expansion.</p>
+                <div class="mt-12 max-w-5xl mx-auto">
+                    <div class="flex justify-between items-center">
+                        <button class="timeline-btn p-2 font-bold text-sky-700" data-year="1">Year 1</button>
+                        <button class="timeline-btn p-2 font-semibold text-slate-500" data-year="2">Year 2</button>
+                        <button class="timeline-btn p-2 font-semibold text-slate-500" data-year="3">Year 3</button>
+                        <button class="timeline-btn p-2 font-semibold text-slate-500" data-year="4">Year 4</button>
+                        <button class="timeline-btn p-2 font-semibold text-slate-500" data-year="5">Year 5</button>
+                    </div>
+                    <div class="relative w-full h-1 bg-slate-200 mt-2">
+                        <div id="timeline-indicator" class="absolute top-0 left-0 h-1 bg-sky-600 transition-all duration-300" style="width: 20%;"></div>
+                    </div>
+                    <div id="timeline-content" class="mt-6 bg-slate-100 p-6 rounded-lg">
+                        <div class="timeline-text" data-year="1">
+                            <h4 class="font-bold text-slate-800">Year 1: R&D and Certification</h4>
+                            <p class="mt-2 text-sm">Focus on finalizing the G4 Archangel prototype and beginning the rigorous FAA certification process. Build out the core engineering and operations team.</p>
+                        </div>
+                        <div class="timeline-text hidden" data-year="2">
+                            <h4 class="font-bold text-slate-800">Year 2: Initial Contracts</h4>
+                            <p class="mt-2 text-sm">Achieve FAA certification. Conduct live demonstrations for target clients and secure at least two foundational contracts with emergency services or industrial partners. Begin initial production run.</p>
+                        </div>
+                        <div class="timeline-text hidden" data-year="3">
+                            <h4 class="font-bold text-slate-800">Year 3: Scaling Professional Market</h4>
+                            <p class="mt-2 text-sm">Scale production to fulfill initial orders and expand sales efforts within the professional market. Refine training programs based on early customer feedback.</p>
+                        </div>
+                        <div class="timeline-text hidden" data-year="4">
+                            <h4 class="font-bold text-slate-800">Year 4: Entering Recreational Market</h4>
+                            <p class="mt-2 text-sm">Launch exclusive sales to the high-net-worth recreational market. Establish partnerships with luxury and adventure retailers. Reach break-even point.</p>
+                        </div>
+                         <div class="timeline-text hidden" data-year="5">
+                            <h4 class="font-bold text-slate-800">Year 5: Profitability & Expansion</h4>
+                            <p class="mt-2 text-sm">Achieve strong profitability through scaled production and a dual-market (professional and recreational) sales strategy. Begin R&D for next-generation products.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800">The Financials</h2>
+                <p class="text-center mt-2 max-w-2xl mx-auto text-slate-600">We have a clear roadmap to profitability within five years, driven by a scalable business model and strong market demand.</p>
+                <div class="mt-12 grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-slate-800">Startup Cost Breakdown</h3>
+                        <p class="text-center text-sm text-slate-500">Total Ask: $15 Million</p>
+                        <div class="chart-container mt-4">
+                            <canvas id="startupCostsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-slate-800">5-Year Revenue Projections</h3>
+                        <p class="text-center text-sm text-slate-500">Projected Annual Revenue (in Millions)</p>
+                        <div class="chart-container mt-4">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-white">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <p class="font-bold text-lg">Gateway's Gravitic Guidance Gear (G4)</p>
+            <p class="mt-2 text-sm text-slate-300">Pioneering the future of personal flight from the heart of America.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const startupCostsData = {
+                labels: ['R&D and Prototyping', 'FAA Certification', 'Facility & Equipment', 'Salaries & Operations', 'Legal & Marketing'],
+                datasets: [{
+                    label: 'Cost Breakdown',
+                    data: [7, 1.5, 3, 2.5, 1],
+                    backgroundColor: ['#0284c7', '#0ea5e9', '#38bdf8', '#7dd3fc', '#bae6fd'],
+                    borderColor: '#f8fafc',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            };
+
+            const revenueData = {
+                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                datasets: [{
+                    label: 'Revenue in Millions ($)',
+                    data: [0, 2.5, 9, 25, 50],
+                    backgroundColor: '#0ea5e9',
+                    borderColor: '#0284c7',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                }]
+            };
+
+            const startupCostsCtx = document.getElementById('startupCostsChart').getContext('2d');
+            new Chart(startupCostsCtx, {
+                type: 'doughnut',
+                data: startupCostsData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#475569',
+                                boxWidth: 12,
+                                padding: 15,
+                            }
+                        }
+                    }
+                }
+            });
+
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'bar',
+                data: revenueData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Revenue in Millions ($)',
+                                color: '#475569'
+                            },
+                            ticks: { color: '#475569' },
+                            grid: { color: '#e2e8f0' }
+                        },
+                        x: {
+                            ticks: { color: '#475569' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            const featureCards = document.querySelectorAll('.feature-card');
+            const featureContents = document.querySelectorAll('.feature-content');
+            featureCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    featureCards.forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    
+                    const feature = card.dataset.feature;
+                    featureContents.forEach(content => {
+                        if (content.id === `feature-${feature}`) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            const timelineBtns = document.querySelectorAll('.timeline-btn');
+            const timelineTexts = document.querySelectorAll('.timeline-text');
+            const timelineIndicator = document.getElementById('timeline-indicator');
+            const yearWidths = { '1': '20%', '2': '40%', '3': '60%', '4': '80%', '5': '100%' };
+            
+            timelineBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const year = btn.dataset.year;
+                    
+                    timelineBtns.forEach(b => {
+                        b.classList.remove('font-bold', 'text-sky-700');
+                        b.classList.add('font-semibold', 'text-slate-500');
+                    });
+                    btn.classList.add('font-bold', 'text-sky-700');
+                    btn.classList.remove('font-semibold', 'text-slate-500');
+
+                    timelineIndicator.style.width = yearWidths[year];
+
+                    timelineTexts.forEach(text => {
+                        if(text.dataset.year === year) {
+                            text.classList.remove('hidden');
+                        } else {
+                            text.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+            
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                        mobileNav.value = `#${id}`;
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            mobileNav.addEventListener('change', (e) => {
+                window.location.hash = e.target.value;
+            });
+        });
+    </script>
+</body>
+</html>
